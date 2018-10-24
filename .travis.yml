@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vedhamurthy/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run vedhamurthy/docker-react npm run test -- --coverage
